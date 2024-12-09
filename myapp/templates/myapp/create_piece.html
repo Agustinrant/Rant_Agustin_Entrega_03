@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Pieza</title>
+    <style>
+        .btn {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Crear Pieza de Joyería</h2>
+        <form method="post">
+            {% csrf_token %}
+
+            <!-- Campo Nombre -->
+            <div class="mb-3">
+                <label for="id_name" class="form-label">Nombre de la Pieza</label>
+                {{ form.name }}
+            </div>
+
+            <!-- Campo Categoría -->
+            <div class="mb-3">
+                <label for="id_category" class="form-label">Categoría</label>
+                {{ form.category }}
+            </div>
+
+            <!-- Campo Material -->
+            <div class="mb-3">
+                <label for="id_material" class="form-label">Material</label>
+                {{ form.material }}
+            </div>
+
+            <!-- Campo Año de Creación -->
+            <div class="mb-3">
+                <label for="id_year_created" class="form-label">Año de Creación</label>
+                {{ form.year_created }}
+            </div>
+
+            <!-- Botón Enviar -->
+            <button type="submit" class="btn">Guardar Pieza</button>
+        </form>
+
+        <!-- Botón para volver al inicio -->
+        <a href="{% url 'index' %}" class="btn">Volver a Inicio</a>
+    </div>
+</body>
+</html>

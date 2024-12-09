@@ -1,0 +1,7 @@
+{% extends 'myapp/index.html' %}
+
+{% block content %}
+<h2>{{ message }}</h2>
+<a href="{% url 'create_piece' %}" class="btn btn-primary">Crear otra pieza</a>
+<a href="{% url 'search_piece' %}" class="btn btn-secondary">Buscar piezas</a>
+{% endblock %}

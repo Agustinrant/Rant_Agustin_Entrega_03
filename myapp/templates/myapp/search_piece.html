@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Piezas</title>
+    <style>
+        .btn {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Buscar Piezas de Joyería</h2>
+        <form method="get">
+            <input type="text" name="query" placeholder="Buscar por nombre..." value="{{ query }}" />
+            <button type="submit" class="btn">Buscar</button>
+        </form>
+
+        {% if pieces %}
+            <h3>Resultados:</h3>
+            <ul>
+                {% for piece in pieces %}
+                    <li>
+                        <strong>{{ piece.name }}</strong> - {{ piece.category }} - {{ piece.material }} - Año: {{ piece.year_created }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% elif query %}
+            <p>No se encontraron piezas con el nombre "{{ query }}".</p>
+        {% endif %}
+
+        <!-- Botón para volver al inicio -->
+        <a href="{% url 'index' %}" class="btn">Volver a Inicio</a>
+    </div>
+</body>
+</html>

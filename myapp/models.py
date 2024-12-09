@@ -1,8 +1,5 @@
 from django.db import models
 
-# Modelo.
-from django.db import models
-
 class JewelryPiece(models.Model):
     CATEGORY_CHOICES = [
         ('ANILLO', 'Anillo'),
@@ -22,4 +19,4 @@ class JewelryPiece(models.Model):
     year_created = models.IntegerField()
 
     def __str__(self):
-        return f"{self.name} ({self.get_category_display()})"
+        return f"{self.name} ({self.category})"
