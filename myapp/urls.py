@@ -8,6 +8,9 @@ urlpatterns = [
     path('create/', views.create_piece, name='create_piece'),  # Crear pieza
     path('search/', views.search_piece, name='search_piece'),  # Buscar piezas
     path('about/', views.about, name='about'),  # Acerca de mí
+    path('delete/<int:piece_id>/', views.delete_piece, name='delete_piece'),  # Ruta para eliminar
+    path('edit/<int:piece_id>/', views.edit_piece, name='edit_piece'),  # Ruta para editar
+
 ]
 
 

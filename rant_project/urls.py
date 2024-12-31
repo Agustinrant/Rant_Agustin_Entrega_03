@@ -22,15 +22,6 @@ Including another URLconf
 #     path('', include('myapp.urls')),
 # ]
 
-
-from django.contrib import admin
-from django.urls import path, include
-
-urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('myapp.urls')),  # Incluye las rutas de 'myapp'
-]
-
 from django.contrib import admin
 from django.urls import path, include
 

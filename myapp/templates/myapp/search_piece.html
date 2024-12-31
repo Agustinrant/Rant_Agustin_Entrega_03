@@ -5,11 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buscar Piezas</title>
     <style>
+        .result-item {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
         .btn {
             display: inline-block;
-            margin: 10px 0;
-            padding: 10px 20px;
-            font-size: 16px;
+            margin: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
             text-decoration: none;
             color: white;
             background-color: #007bff;
@@ -20,31 +26,58 @@
         .btn:hover {
             background-color: #0056b3;
         }
+        .btn-delete {
+            background-color: #dc3545;
+        }
+        .btn-delete:hover {
+            background-color: #a71d2a;
+        }
     </style>
 </head>
 <body>
-    <div class="container mt-5">
-        <h2>Buscar Piezas de Joyería</h2>
-        <form method="get">
-            <input type="text" name="query" placeholder="Buscar por nombre..." value="{{ query }}" />
-            <button type="submit" class="btn">Buscar</button>
-        </form>
+    <h1>Buscar Piezas de Joyería</h1>
+    <form method="get">
+        <!-- Campos de búsqueda -->
+        <label for="query">Nombre:</label>
+        <input type="text" id="query" name="query" placeholder="Buscar por nombre" value="{{ query }}">
 
-        {% if pieces %}
-            <h3>Resultados:</h3>
-            <ul>
-                {% for piece in pieces %}
-                    <li>
-                        <strong>{{ piece.name }}</strong> - {{ piece.category }} - {{ piece.material }} - Año: {{ piece.year_created }}
-                    </li>
-                {% endfor %}
-            </ul>
-        {% elif query %}
-            <p>No se encontraron piezas con el nombre "{{ query }}".</p>
-        {% endif %}
+        <label for="category">Categoría:</label>
+        <select id="category" name="category">
+            <option value="">-- Todas --</option>
+            <option value="ANILLO" {% if category == "ANILLO" %}selected{% endif %}>Anillo</option>
+            <option value="COLGANTE" {% if category == "COLGANTE" %}selected{% endif %}>Colgante</option>
+            <option value="ARO" {% if category == "ARO" %}selected{% endif %}>Aro</option>
+        </select>
 
-        <!-- Botón para volver al inicio -->
-        <a href="{% url 'index' %}" class="btn">Volver a Inicio</a>
-    </div>
+        <label for="material">Material:</label>
+        <select id="material" name="material">
+            <option value="">-- Todos --</option>
+            <option value="PLATA" {% if material == "PLATA" %}selected{% endif %}>Plata</option>
+            <option value="BRONCE" {% if material == "BRONCE" %}selected{% endif %}>Bronce</option>
+            <option value="ORO" {% if material == "ORO" %}selected{% endif %}>Oro</option>
+        </select>
+
+        <label for="year">Año:</label>
+        <input type="number" id="year" name="year" placeholder="Buscar por año" value="{{ year }}">
+
+        <button type="submit" class="btn">Buscar</button>
+    </form>
+
+    {% if pieces %}
+        <h2>Resultados:</h2>
+        <ul>
+            {% for piece in pieces %}
+                <li class="result-item">
+                    <strong>{{ piece.name }}</strong> - {{ piece.category }} - {{ piece.material }} - Año: {{ piece.year_created }}
+                    <a href="{% url 'edit_piece' piece.id %}" class="btn">Editar</a>
+                    <a href="{% url 'delete_piece' piece.id %}" class="btn btn-delete">Eliminar</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% elif query or category or material or year %}
+        <p>No se encontraron piezas con los criterios de búsqueda.</p>
+    {% endif %}
+
+    <a href="{% url 'index' %}" class="btn">Volver a Inicio</a>
 </body>
 </html>
