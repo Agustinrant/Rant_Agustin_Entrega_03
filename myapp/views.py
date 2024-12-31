@@ -21,3 +21,14 @@ def search_piece(request):
 
 def index(request):
     return render(request, 'myapp/index.html')
+
+
+from django.shortcuts import render
+
+def about(request):
+    return render(request, 'myapp/about.html', {
+        'name': 'Agustín Rant',
+        'description': 'Soy Agustín Rant, artista con más de 10 años de experiencia en pintura al óleo y fundador de Occelo, un emprendimiento de joyería inspirado en la naturaleza.',
+        'project': 'Occelo es una marca de joyería artesanal que combina diseño y arte para crear piezas únicas. Este proyecto es parte de mi pasión por el arte y la creatividad.',
+        'photo_url': 'myapp/assets/img/agustin.jpg',  # Ruta actualizada de la foto
+    })

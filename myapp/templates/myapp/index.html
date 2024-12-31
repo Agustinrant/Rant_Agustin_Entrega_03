@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Landing Page - Start Bootstrap Theme</title>
+    <title>{% block title %}Landing Page{% endblock %}</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="{% static 'myapp/assets/favicon.ico' %}" />
     <!-- Bootstrap icons-->
@@ -45,54 +45,30 @@
             <a class="btn btn-primary" href="#signup">Sign Up</a>
         </div>
     </nav>
-    <!-- Masthead-->
-    <header class="masthead">
-        <div class="container position-relative">
-            <div class="row justify-content-center">
-                <div class="col-xl-6">
-                    <div class="text-center text-white">
-                        <!-- Page heading-->
-                        <h1 class="mb-5">Occelo</h1>
 
-                        <!-- Botones para Crear y Buscar Piezas -->
-                        <div class="btn-container">
-                            <a href="{% url 'create_piece' %}" class="btn">Crear Pieza</a>
-                            <a href="{% url 'search_piece' %}" class="btn">Buscar Piezas</a>
+    <!-- Main content block -->
+    <div class="main-content">
+        {% block content %}
+        <!-- Contenido por defecto de la página inicial -->
+        <header class="masthead">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                            <!-- Page heading -->
+                            <h1 class="mb-5">Occelo</h1>
+                            <div class="btn-container">
+                                <a href="{% url 'create_piece' %}" class="btn">Crear Pieza</a>
+                                <a href="{% url 'search_piece' %}" class="btn">Buscar Piezas</a>
+                                <a href="{% url 'about' %}" class="btn">Acerca de mí</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
-
-    <!-- Features Section -->
-    <section class="features-icons bg-light text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                        <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
-                        <h3>Fully Responsive</h3>
-                        <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                        <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
-                        <h3>Bootstrap 5 Ready</h3>
-                        <p class="lead mb-0">Featuring the latest build of the new Bootstrap 5 framework!</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-                        <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
-                        <h3>Easy to Use</h3>
-                        <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </header>
+        {% endblock %}
+    </div>
 
     <!-- Footer -->
     <footer class="footer bg-light">
@@ -106,7 +82,6 @@
     </footer>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
     <script src="{% static 'myapp/js/scripts.js' %}"></script>
 </body>
 </html>
