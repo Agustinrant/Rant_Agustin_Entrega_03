@@ -14,14 +14,4 @@ Buscar piezas: http://127.0.0.1:8000/search/
 Administrador http://127.0.0.1:8000/admin/
 
 
-Despues de la entrega 3-----
-
-Agregá una boton para accedera una vista "sobre mí" con información mia y una foto
-
-mejoré el sistema de busqueda, agregando un botón para borrar y otra para modificar en la vista search
-
-hace falta estar logeado para poder editar o eliminar articulos
-
-Usuario de prueba:
-Carlos01
-pass: Perro12345
+Cree una app para ver los perfiles "profiles" que no pude hacer funcionar, dejé en el codigo todo lo que hice pero no pude descubrir que era lo que tenía mal, la rehice 3 veces y no conseguí corregirlo.
