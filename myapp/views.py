@@ -2,7 +2,10 @@ from django.shortcuts import render
 from .models import JewelryPiece
 from .forms import JewelryPieceForm
 from django.shortcuts import redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
+#para crear las piezas
+@login_required
 def create_piece(request):
     if request.method == 'POST':
         form = JewelryPieceForm(request.POST)
@@ -13,8 +16,8 @@ def create_piece(request):
         form = JewelryPieceForm()
     return render(request, 'myapp/create_piece.html', {'form': form})
 
+#para buscar las piezas
 def search_piece(request):
-    # Recuperar términos de búsqueda desde la solicitud
     query = request.GET.get('query', '')  # Búsqueda por nombre
     category = request.GET.get('category', '')  # Búsqueda por categoría
     material = request.GET.get('material', '')  # Búsqueda por material
@@ -56,9 +59,6 @@ def about(request):
     })
     
 
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect, get_object_or_404
-from .models import JewelryPiece
 
 @login_required
 def delete_piece(request, piece_id):
@@ -101,6 +101,7 @@ def register(request):
     return render(request, 'myapp/register.html', {'form': form})
 
 # eso corresponde a "VER MAS"
+@login_required
 def detail_piece(request, piece_id):
     # Obtén la pieza específica o lanza un error 404 si no existe
     piece = get_object_or_404(JewelryPiece, id=piece_id)
