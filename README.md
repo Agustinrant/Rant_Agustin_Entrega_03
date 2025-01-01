@@ -22,3 +22,6 @@ mejoré el sistema de busqueda, agregando un botón para borrar y otra para modi
 
 hace falta estar logeado para poder editar o eliminar articulos
 
+Usuario de prueba:
+Carlos01
+pass: Perro12345

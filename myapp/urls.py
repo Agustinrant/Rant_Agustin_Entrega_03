@@ -2,6 +2,7 @@
 
 from django.urls import path
 from . import views
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', views.index, name='index'),  # Página principal
@@ -11,7 +12,9 @@ urlpatterns = [
     path('delete/<int:piece_id>/', views.delete_piece, name='delete_piece'),  # Ruta para eliminar
     path('edit/<int:piece_id>/', views.edit_piece, name='edit_piece'),  # Ruta para editar
     path('register/', views.register, name='register'),
-
+    path('login/', auth_views.LoginView.as_view(template_name='myapp/login.html'), name='login'),
 ]
+
+
 
 
