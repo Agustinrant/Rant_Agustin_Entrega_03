@@ -13,6 +13,7 @@ urlpatterns = [
     path('edit/<int:piece_id>/', views.edit_piece, name='edit_piece'),  # Ruta para editar
     path('register/', views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='myapp/login.html'), name='login'),
+     path('detail/<int:piece_id>/', views.detail_piece, name='detail_piece'),
 ]
 
 

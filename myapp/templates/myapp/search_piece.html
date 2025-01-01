@@ -69,6 +69,7 @@
             {% for piece in pieces %}
                 <li class="result-item">
                     <strong>{{ piece.name }}</strong> - {{ piece.category }} - {{ piece.material }} - Año: {{ piece.year_created }}
+                    <a href="{% url 'detail_piece' piece.id %}" class="btn">Ver más</a>
                     <a href="{% url 'edit_piece' piece.id %}" class="btn">Editar</a>
                     <a href="{% url 'delete_piece' piece.id %}" class="btn btn-delete">Eliminar</a>
                 </li>
