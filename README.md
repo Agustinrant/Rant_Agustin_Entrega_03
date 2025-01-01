@@ -13,4 +13,12 @@ Crear piezas: http://127.0.0.1:8000/create/
 Buscar piezas: http://127.0.0.1:8000/search/
 Administrador http://127.0.0.1:8000/admin/
 
-Por una cuestion de tiempo, todavía no llegué a personalizar más el template con imagenes propias y demás.
+
+Despues de la entrega 3-----
+
+Agregá una boton para accedera una vista "sobre mí" con información mia y una foto
+
+mejoré el sistema de busqueda, agregando un botón para borrar y otra para modificar en la vista search
+
+hace falta estar logeado para poder editar o eliminar articulos
+

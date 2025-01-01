@@ -34,9 +34,20 @@
 
 
 from django import forms
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 from .models import JewelryPiece
 
+# Formulario para crear y editar piezas de joyería (ya existente)
 class JewelryPieceForm(forms.ModelForm):
     class Meta:
         model = JewelryPiece
         fields = ['name', 'category', 'material', 'year_created']
+
+# Nuevo formulario para registrar usuarios
+class UserRegisterForm(UserCreationForm):
+    email = forms.EmailField()  # Campo adicional para el correo electrónico
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password1', 'password2']  # Campos del formulario

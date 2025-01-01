@@ -56,6 +56,11 @@ def about(request):
     })
     
 
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import JewelryPiece
+
+@login_required
 def delete_piece(request, piece_id):
     # Obtener la pieza por ID o devolver 404 si no existe
     piece = get_object_or_404(JewelryPiece, id=piece_id)
@@ -66,7 +71,7 @@ def delete_piece(request, piece_id):
     # Redirigir a la página de búsqueda
     return redirect('search_piece')
 
-
+@login_required
 def edit_piece(request, piece_id):
     # Obtener la pieza por ID o lanzar un 404 si no existe
     piece = get_object_or_404(JewelryPiece, id=piece_id)
@@ -82,3 +87,15 @@ def edit_piece(request, piece_id):
         form = JewelryPieceForm(instance=piece)
 
     return render(request, 'myapp/edit_piece.html', {'form': form, 'piece': piece})
+
+from .forms import UserRegisterForm
+
+def register(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')  # Redirigir al login tras el registro
+    else:
+        form = UserRegisterForm()
+    return render(request, 'myapp/register.html', {'form': form})
