@@ -1,4 +1,4 @@
-ENTREGA 03 DE AGUSTIN RANT
+ENTREGA FINAL DE AGUSTIN RANT
 
 Creé un modelo similar al visto de los automoviles pero de joyería para una tienda online, donde se cargan los productos y se puede buscar para verlos
 
