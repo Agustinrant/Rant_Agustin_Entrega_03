@@ -1,5 +1,8 @@
 ENTREGA FINAL DE AGUSTIN RANT
 
+VIDEO DEMOSTRATIVO: https://drive.google.com/drive/folders/14AGkqD7wk7pme6YPMaVompvFpn8ed5vs?usp=sharing
+
+
 Creé un modelo similar al visto de los automoviles pero de joyería para una tienda online, donde se cargan los productos y se puede buscar para verlos
 
 Creé un superusuario con la sig información:
